@@ -152,12 +152,23 @@ INSERT INTO appointments (caregiver_user_id, member_user_id, appointment_date, a
 (1, 14, '2025-11-10', '09:00:00', 5, 'Accepted');
 """
 
-# 3. EXECUTE
+
 try:
     engine = create_engine(db_string)
     connection = engine.connect()
     print(f"Successfully connected to {DB_NAME} at {HOST}!")
 except Exception as e:
     print(f"Connection failed: {e}")
+
+    
+# 3. EXECUTE
+try:
+    connection.execute(text(insert_sql))
+    connection.commit()
+    print("All data inserted successfully!")
+except Exception as e:
+    print(f"Error inserting data: {e}")
+    # Rollback in case of error to avoid partial states
+    connection.rollback()
 
 connection.close()
