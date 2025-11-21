@@ -94,8 +94,13 @@ CREATE TABLE appointments (
     appointment_time TIME NOT NULL,
     work_hours INTEGER,
     status VARCHAR(20) DEFAULT 'Pending',
-    CONSTRAINT fk_appt_caregiver FOREIGN KEY (caregiver_user_id) REFERENCES caregivers (caregiver_user_id),
-    CONSTRAINT fk_appt_member FOREIGN KEY (member_user_id) REFERENCES members (member_user_id)
+    
+    -- ADD "ON DELETE CASCADE" TO BOTH CONSTRAINTS BELOW:
+    CONSTRAINT fk_appt_caregiver FOREIGN KEY (caregiver_user_id) 
+        REFERENCES caregivers (caregiver_user_id) ON DELETE CASCADE,
+        
+    CONSTRAINT fk_appt_member FOREIGN KEY (member_user_id) 
+        REFERENCES members (member_user_id) ON DELETE CASCADE
 );
 """
 
