@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Caregiver Platform</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #4CAF50; color: white; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+        nav { margin-bottom: 20px; padding: 10px; background: #333; }
+        nav a { color: white; text-decoration: none; margin-right: 20px; font-weight: bold; }
+        .btn-danger { color: red; text-decoration: none; font-weight: bold; }
+        form { background: #f9f9f9; padding: 15px; border: 1px solid #ddd; }
+        input { padding: 5px; margin: 5px; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/users">Manage Users</a>
+    </nav>
+    
+    {% block content %}{% endblock %}
+</body>
+</html>

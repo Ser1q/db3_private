@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>User Management</h1>
+
+<h3>Add New User</h3>
+<form action="/add_user" method="POST">
+    <input type="text" name="given_name" placeholder="First Name" required>
+    <input type="text" name="surname" placeholder="Last Name" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="password" name="password" placeholder="Password" required>
+    <input type="text" name="city" placeholder="City" required>
+    <input type="text" name="phone" placeholder="Phone (Optional)">
+    <button type="submit">Add User</button>
+</form>
+
+<h3>Existing Users</h3>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>City</th>
+            <th>Phone</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+        <tr>
+            <td>{{ user.user_id }}</td>
+            <td>{{ user.given_name }} {{ user.surname }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.city }}</td>
+            <td>{{ user.phone_number }}</td>
+            <td>
+                <a href="/delete_user/{{ user.user_id }}" class="btn-danger"
+                    onclick="return confirm('Delete this user?')">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

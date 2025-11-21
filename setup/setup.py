@@ -1,30 +1,20 @@
-from sqlalchemy import create_engine, text
 import os
 from dotenv import load_dotenv
+from sqlalchemy import create_engine, text
 
 load_dotenv()
-
-# 2. Get variables
 USER = os.getenv("DB_USER")
 PASSWORD = os.getenv("DB_PASSWORD")
 HOST = os.getenv("DB_HOST")
 PORT = os.getenv("DB_PORT")
 DB_NAME = os.getenv("DB_NAME")
 
-# 3. Construct the connection string securely
-# format: postgresql://user:password@host:port/dbname
 db_string = f"postgresql://{USER}:{PASSWORD}@{HOST}:{PORT}/{DB_NAME}"
+engine = create_engine(db_string)
+connection = engine.connect()
 
-try:
-    db = create_engine(db_string)
-    connection = db.connect()
-    print("Connected to the database!")
-except Exception as e:
-    print(f"Connection failed: {e}")
-    exit()
-
-# SQL DDL STATEMENTS
-create_tables_sql = """
+# FULL SCHEMA WITH CASCADING DELETES
+create_sql = """
 DROP TABLE IF EXISTS appointments CASCADE;
 DROP TABLE IF EXISTS job_applications CASCADE;
 DROP TABLE IF EXISTS jobs CASCADE;
@@ -86,6 +76,7 @@ CREATE TABLE job_applications (
     CONSTRAINT fk_app_job FOREIGN KEY (job_id) REFERENCES jobs (job_id) ON DELETE CASCADE
 );
 
+-- THE CRITICAL FIX IS HERE (ON DELETE CASCADE)
 CREATE TABLE appointments (
     appointment_id SERIAL PRIMARY KEY,
     caregiver_user_id INTEGER NOT NULL,
@@ -94,22 +85,16 @@ CREATE TABLE appointments (
     appointment_time TIME NOT NULL,
     work_hours INTEGER,
     status VARCHAR(20) DEFAULT 'Pending',
-    
-    -- ADD "ON DELETE CASCADE" TO BOTH CONSTRAINTS BELOW:
-    CONSTRAINT fk_appt_caregiver FOREIGN KEY (caregiver_user_id) 
-        REFERENCES caregivers (caregiver_user_id) ON DELETE CASCADE,
-        
-    CONSTRAINT fk_appt_member FOREIGN KEY (member_user_id) 
-        REFERENCES members (member_user_id) ON DELETE CASCADE
+    CONSTRAINT fk_appt_caregiver FOREIGN KEY (caregiver_user_id) REFERENCES caregivers (caregiver_user_id) ON DELETE CASCADE,
+    CONSTRAINT fk_appt_member FOREIGN KEY (member_user_id) REFERENCES members (member_user_id) ON DELETE CASCADE
 );
 """
 
-# EXECUTE
 try:
-    engine = create_engine(db_string)
-    connection = engine.connect()
-    print(f"Successfully connected to {DB_NAME} at {HOST}!")
+    connection.execute(text(create_sql))
+    connection.commit()
+    print("Tables rebuilt successfully with CASCADE rules.")
 except Exception as e:
-    print(f"Connection failed: {e}")
+    print(f"Error: {e}")
 
 connection.close()
