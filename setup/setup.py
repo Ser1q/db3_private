@@ -1,13 +1,20 @@
 import os
+from pathlib import Path
 from dotenv import load_dotenv
 from sqlalchemy import create_engine, text
 
-load_dotenv()
+# Load .env from the project root so the script works regardless of cwd
+ENV_PATH = Path(__file__).resolve().parents[1] / ".env"
+load_dotenv(ENV_PATH)
+
 USER = os.getenv("DB_USER")
 PASSWORD = os.getenv("DB_PASSWORD")
 HOST = os.getenv("DB_HOST")
 PORT = os.getenv("DB_PORT")
 DB_NAME = os.getenv("DB_NAME")
+
+if not all([USER, PASSWORD, HOST, PORT, DB_NAME]):
+    raise ValueError("Missing database configuration; check .env settings.")
 
 db_string = f"postgresql://{USER}:{PASSWORD}@{HOST}:{PORT}/{DB_NAME}"
 engine = create_engine(db_string)

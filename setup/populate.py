@@ -1,9 +1,11 @@
 from sqlalchemy import create_engine, text
 import os
+from pathlib import Path
 from dotenv import load_dotenv
 
-# 1. Load variables from .env file
-load_dotenv()
+# Load .env from the project root so the script works regardless of cwd
+ENV_PATH = Path(__file__).resolve().parents[1] / ".env"
+load_dotenv(ENV_PATH)
 
 # 2. Get variables
 USER = os.getenv("DB_USER")
@@ -11,6 +13,9 @@ PASSWORD = os.getenv("DB_PASSWORD")
 HOST = os.getenv("DB_HOST")
 PORT = os.getenv("DB_PORT")
 DB_NAME = os.getenv("DB_NAME")
+
+if not all([USER, PASSWORD, HOST, PORT, DB_NAME]):
+    raise ValueError("Missing database configuration; check .env settings.")
 
 # 3. Construct the connection string securely
 # format: postgresql://user:password@host:port/dbname
