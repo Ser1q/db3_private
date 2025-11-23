@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Post a Job</h2>
+<form method="post" action="{% url 'member_jobs' %}">
+    {% csrf_token %}
+    {% for field in form %}
+        <div>
+            {{ field.label_tag }} {{ field }}
+            {% for error in field.errors %}<div style="color:red">{{ error }}</div>{% endfor %}
+        </div>
+    {% endfor %}
+    <button type="submit">Post Job</button>
+</form>
+
+<h3>Your Jobs</h3>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Type</th>
+            <th>Requirements</th>
+            <th>Date Posted</th>
+            <th>Applicants</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for job in jobs %}
+        <tr>
+            <td>{{ job.job_id }}</td>
+            <td>{{ job.required_caregiving_type }}</td>
+            <td>{{ job.other_requirements }}</td>
+            <td>{{ job.date_posted }}</td>
+            <td>
+                {% if job.applicants %}
+                    <ul>
+                    {% for applicant in job.applicants %}
+                        <li>{{ applicant.name }} ({{ applicant.caregiving_type }}) - {{ applicant.email }} {{ applicant.phone }}</li>
+                    {% endfor %}
+                    </ul>
+                {% else %}
+                    None yet
+                {% endif %}
+            </td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="5">No jobs posted yet.</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

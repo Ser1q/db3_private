@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Jobs</h2>
+<form method="get" action="{% url 'jobs_list' %}">
+    <select name="caregiving_type">
+        <option value="">Any type</option>
+        <option value="Babysitter" {% if caregiving_type == "Babysitter" %}selected{% endif %}>Babysitter</option>
+        <option value="Elderly Care" {% if caregiving_type == "Elderly Care" %}selected{% endif %}>Elderly Care</option>
+        <option value="Playmate for children" {% if caregiving_type == "Playmate for children" %}selected{% endif %}>Playmate for children</option>
+    </select>
+    <button type="submit">Filter</button>
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Type</th>
+            <th>Requirements</th>
+            <th>Posted By</th>
+            <th>Posted On</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for job in jobs %}
+        <tr>
+            <td>{{ job.job_id }}</td>
+            <td>{{ job.required_caregiving_type }}</td>
+            <td>{{ job.other_requirements }}</td>
+            <td>{{ job.member.member_user.given_name }} {{ job.member.member_user.surname }}</td>
+            <td>{{ job.date_posted }}</td>
+            <td>
+                {% if caregiver %}
+                    {% if job.job_id in applied_job_ids %}
+                        Applied
+                    {% else %}
+                        <form method="post" action="{% url 'apply_job' job.job_id %}" style="display:inline">
+                            {% csrf_token %}
+                            <button type="submit">Apply</button>
+                        </form>
+                    {% endif %}
+                {% else %}
+                    Login as caregiver to apply
+                {% endif %}
+            </td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="6">No jobs found.</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

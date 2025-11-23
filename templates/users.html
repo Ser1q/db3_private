@@ -4,13 +4,28 @@
 <h1>User Management</h1>
 
 <h3>Add New User</h3>
-<form action="/add_user" method="POST">
+{% if form.errors %}
+<div style="color: red; margin-bottom: 10px;">
+    <ul>
+        {% for field in form %}
+            {% for error in field.errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+        {% endfor %}
+        {% for error in form.non_field_errors %}
+            <li>{{ error }}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}
+<form action="{% url 'users' %}" method="POST">
+    {% csrf_token %}
     <input type="text" name="given_name" placeholder="First Name" required>
     <input type="text" name="surname" placeholder="Last Name" required>
     <input type="email" name="email" placeholder="Email" required>
     <input type="password" name="password" placeholder="Password" required>
     <input type="text" name="city" placeholder="City" required>
-    <input type="text" name="phone" placeholder="Phone (Optional)">
+    <input type="text" name="phone_number" placeholder="Phone (Optional)">
     <button type="submit">Add User</button>
 </form>
 
@@ -35,8 +50,10 @@
             <td>{{ user.city }}</td>
             <td>{{ user.phone_number }}</td>
             <td>
-                <a href="/delete_user/{{ user.user_id }}" class="btn-danger"
-                    onclick="return confirm('Delete this user?')">Delete</a>
+                <form action="{% url 'delete_user' user.user_id %}" method="post" style="display:inline">
+                    {% csrf_token %}
+                    <button type="submit" class="btn-danger" onclick="return confirm('Delete this user?')">Delete</button>
+                </form>
             </td>
         </tr>
         {% endfor %}

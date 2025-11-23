@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Search Caregivers</h2>
+<form method="get" action="{% url 'search' %}">
+    <select name="caregiving_type">
+        <option value="">Any type</option>
+        <option value="Babysitter" {% if selected_type == "Babysitter" %}selected{% endif %}>Babysitter</option>
+        <option value="Elderly Care" {% if selected_type == "Elderly Care" %}selected{% endif %}>Elderly Care</option>
+        <option value="Playmate for children" {% if selected_type == "Playmate for children" %}selected{% endif %}>Playmate for children</option>
+    </select>
+    <input type="text" name="city" placeholder="City" value="{{ city }}">
+    <button type="submit">Search</button>
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <th>Photo</th>
+            <th>Name</th>
+            <th>City</th>
+            <th>Type</th>
+            <th>Rate</th>
+            <th>Bio</th>
+            <th>Contact</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for caregiver in caregivers %}
+        <tr>
+            <td>
+                {% if caregiver.photo %}
+                    <img src="{{ caregiver.photo }}" alt="photo" style="max-width:80px; max-height:80px;">
+                {% else %}
+                    —
+                {% endif %}
+            </td>
+            <td>{{ caregiver.caregiver_user.given_name }} {{ caregiver.caregiver_user.surname }}</td>
+            <td>{{ caregiver.caregiver_user.city }}</td>
+            <td>{{ caregiver.caregiving_type }}</td>
+            <td>{{ caregiver.hourly_rate }}</td>
+            <td>{{ caregiver.caregiver_user.profile_description }}</td>
+            <td>{{ caregiver.caregiver_user.email }}</td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="6">No caregivers match your search.</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Register as Caregiver</h2>
+<form method="post" action="{% url 'register_caregiver' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+    {% for field in form %}
+        <div>
+            {{ field.label_tag }} {{ field }}
+            {% for error in field.errors %}<div style="color:red">{{ error }}</div>{% endfor %}
+        </div>
+    {% endfor %}
+    <button type="submit">Create Account</button>
+</form>
+{% endblock %}

@@ -18,9 +18,28 @@
 </head>
 <body>
     <nav>
-        <a href="/">Home</a>
-        <a href="/users">Manage Users</a>
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'search' %}">Search Caregivers</a>
+        <a href="{% url 'jobs_list' %}">Jobs</a>
+        {% if request.user.is_authenticated %}
+            <a href="{% url 'member_jobs' %}">My Posted Jobs</a>
+            <a href="{% url 'logout' %}">Logout</a>
+        {% else %}
+            <a href="{% url 'register_member' %}">Register Member</a>
+            <a href="{% url 'register_caregiver' %}">Register Caregiver</a>
+            <a href="{% url 'login' %}">Login</a>
+        {% endif %}
     </nav>
+
+    {% if messages %}
+    <ul style="list-style:none; padding:0;">
+        {% for message in messages %}
+            <li style="margin:4px 0; color: {% if message.tags == 'error' %}red{% else %}green{% endif %};">
+                {{ message }}
+            </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
     
     {% block content %}{% endblock %}
 </body>
