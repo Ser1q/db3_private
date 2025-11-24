@@ -89,17 +89,6 @@ DATABASES = {
 }
 
 
-if not all(
-    [
-        DATABASES["default"]["NAME"],
-        DATABASES["default"]["USER"],
-        DATABASES["default"]["PASSWORD"],
-        DATABASES["default"]["HOST"],
-        DATABASES["default"]["PORT"],
-    ]
-):
-    raise ValueError("Database configuration is incomplete. Check .env settings.")
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
