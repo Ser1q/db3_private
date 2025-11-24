@@ -1,50 +1,67 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h2>Search Caregivers</h2>
-<form method="get" action="{% url 'search' %}">
-    <select name="caregiving_type">
-        <option value="">Any type</option>
+<div class="container mt-4">
+  <h1>Search Caregivers</h1>
+
+  <form method="get" class="row g-3 mb-4">
+    <div class="col-md-4">
+      <label for="caregiving_type" class="form-label">Caregiving type</label>
+      <select id="caregiving_type" name="caregiving_type" class="form-select">
+        <option value="">Any</option>
         <option value="Babysitter" {% if selected_type == "Babysitter" %}selected{% endif %}>Babysitter</option>
         <option value="Elderly Care" {% if selected_type == "Elderly Care" %}selected{% endif %}>Elderly Care</option>
-        <option value="Playmate for children" {% if selected_type == "Playmate for children" %}selected{% endif %}>Playmate for children</option>
-    </select>
-    <input type="text" name="city" placeholder="City" value="{{ city }}">
-    <button type="submit">Search</button>
-</form>
+        <option value="Playmate for children" {% if selected_type == "Playmate for children" %}selected{% endif %}>
+          Playmate for children
+        </option>
+      </select>
+    </div>
 
-<table>
-    <thead>
-        <tr>
-            <th>Photo</th>
-            <th>Name</th>
-            <th>City</th>
-            <th>Type</th>
-            <th>Rate</th>
-            <th>Bio</th>
-            <th>Contact</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for caregiver in caregivers %}
-        <tr>
-            <td>
-                {% if caregiver.photo %}
-                    <img src="{{ caregiver.photo }}" alt="photo" style="max-width:80px; max-height:80px;">
-                {% else %}
-                    —
-                {% endif %}
-            </td>
-            <td>{{ caregiver.caregiver_user.given_name }} {{ caregiver.caregiver_user.surname }}</td>
-            <td>{{ caregiver.caregiver_user.city }}</td>
-            <td>{{ caregiver.caregiving_type }}</td>
-            <td>{{ caregiver.hourly_rate }}</td>
-            <td>{{ caregiver.caregiver_user.profile_description }}</td>
-            <td>{{ caregiver.caregiver_user.email }}</td>
-        </tr>
-        {% empty %}
-        <tr><td colspan="6">No caregivers match your search.</td></tr>
-        {% endfor %}
-    </tbody>
-</table>
+    <div class="col-md-4">
+      <label for="city" class="form-label">City</label>
+      <input
+        id="city"
+        name="city"
+        type="text"
+        class="form-control"
+        placeholder="e.g. Astana"
+        value="{{ city|default_if_none:'' }}"
+      >
+    </div>
+
+    <div class="col-md-4 d-flex align-items-end">
+      <button type="submit" class="btn btn-primary w-100">Search</button>
+    </div>
+  </form>
+
+  {% if caregivers %}
+    <h2 class="h4 mb-3">Results ({{ caregivers|length }})</h2>
+    <div class="list-group">
+      {% for c in caregivers %}
+        <div class="list-group-item">
+          <div class="d-flex justify-content-between">
+            <div>
+              <strong>{{ c.caregiver_user.given_name }} {{ c.caregiver_user.surname }}</strong><br>
+              <small>{{ c.caregiving_type }} · {{ c.caregiver_user.city }}</small><br>
+              <small>Email: {{ c.caregiver_user.email }}</small><br>
+              {% if c.caregiver_user.phone_number %}
+                <small>Phone: {{ c.caregiver_user.phone_number }}</small><br>
+              {% endif %}
+            </div>
+            <div class="text-end">
+              {% if c.hourly_rate %}
+                <span class="badge bg-secondary">{{ c.hourly_rate }} $/hour</span><br>
+              {% endif %}
+            </div>
+          </div>
+          {% if c.caregiver_user.profile_description %}
+            <p class="mt-2 mb-0">{{ c.caregiver_user.profile_description }}</p>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p>No caregivers match your criteria yet.</p>
+  {% endif %}
+</div>
 {% endblock %}
