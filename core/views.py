@@ -328,3 +328,29 @@ def _sync_job_id_sequence():
             "SELECT setval(pg_get_serial_sequence('jobs', 'job_id'), "
             "(SELECT COALESCE(MAX(job_id), 0) FROM jobs));"
         )
+
+from django.http import HttpResponse
+from pathlib import Path
+import subprocess
+import sys
+
+def run_populate(request):
+    """
+    TEMPORARY: run populate.py on the server to seed the Render Postgres DB.
+    Call this URL once, then remove it from urls.py.
+    """
+    project_root = Path(__file__).resolve().parent.parent
+    script_path = project_root / "populate.py"
+
+    result = subprocess.run(
+        [sys.executable, str(script_path)],
+        capture_output=True,
+        text=True,
+    )
+
+    output = (
+        f"Return code: {result.returncode}\n\n"
+        f"--- STDOUT ---\n{result.stdout}\n"
+        f"--- STDERR ---\n{result.stderr}\n"
+    )
+    return HttpResponse(f"<pre>{output}</pre>")
