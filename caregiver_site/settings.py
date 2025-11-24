@@ -16,7 +16,21 @@ load_dotenv(BASE_DIR / ".env")
 # Quick-start development settings - unsuitable for production
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "dev-secret-key-change-me")
 DEBUG = os.getenv("DJANGO_DEBUG", "True").lower() == "true"
-ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "localhost,127.0.0.1").split(",")
+
+ALLOWED_HOSTS = [
+    h.strip()
+    for h in os.getenv("DJANGO_ALLOWED_HOSTS", "localhost,127.0.0.1").split(",")
+    if h.strip()
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    h.strip()
+    for h in os.getenv(
+        "DJANGO_CSRF_TRUSTED_ORIGINS",
+        ""
+    ).split(",")
+    if h.strip()
+]
 
 
 # Application definition
@@ -33,6 +47,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -121,8 +136,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = "static/"
+
+STATIC_ROOT = BASE_DIR / "staticfiles"  # where collectstatic will put files
+
+# keep this only if you actually have a /static folder in project root
 STATICFILES_DIRS = [BASE_DIR / "static"]
+
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / "media"
