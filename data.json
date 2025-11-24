@@ -1,0 +1,752 @@
+[
+{
+  "model": "core.appuser",
+  "pk": 1,
+  "fields": {
+    "email": "alice@mail.com",
+    "given_name": "Alice",
+    "surname": "Smith",
+    "city": "Astana",
+    "phone_number": "87011111111",
+    "profile_description": "Experienced nurse",
+    "password": "pass1"
+  }
+},
+{
+  "model": "core.appuser",
+  "pk": 2,
+  "fields": {
+    "email": "bob@mail.com",
+    "given_name": "Bob",
+    "surname": "Brown",
+    "city": "Almaty",
+    "phone_number": "87011111112",
+    "profile_description": "Loves kids",
+    "password": "pass2"
+  }
+},
+{
+  "model": "core.appuser",
+  "pk": 3,
+  "fields": {
+    "email": "charlie@mail.com",
+    "given_name": "Charlie",
+    "surname": "Davis",
+    "city": "Astana",
+    "phone_number": "87011111113",
+    "profile_description": "Patient and kind",
+    "password": "pass3"
+  }
+},
+{
+  "model": "core.appuser",
+  "pk": 4,
+  "fields": {
+    "email": "diana@mail.com",
+    "given_name": "Diana",
+    "surname": "Evans",
+    "city": "Shymkent",
+    "phone_number": "87011111114",
+    "profile_description": "Energetic student",
+    "password": "pass4"
+  }
+},
+{
+  "model": "core.appuser",
+  "pk": 5,
+  "fields": {
+    "email": "evan@mail.com",
+    "given_name": "Evan",
+    "surname": "Foster",
+    "city": "Astana",
+    "phone_number": "87011111115",
+    "profile_description": "Professional care",
+    "password": "pass5"
+  }
+},
+{
+  "model": "core.appuser",
+  "pk": 6,
+  "fields": {
+    "email": "fiona@mail.com",
+    "given_name": "Fiona",
+    "surname": "Green",
+    "city": "Almaty",
+    "phone_number": "87011111116",
+    "profile_description": "Certified babysitter",
+    "password": "pass6"
+  }
+},
+{
+  "model": "core.appuser",
+  "pk": 7,
+  "fields": {
+    "email": "george@mail.com",
+    "given_name": "George",
+    "surname": "Harris",
+    "city": "Astana",
+    "phone_number": "87011111117",
+    "profile_description": "Good with pets too",
+    "password": "pass7"
+  }
+},
+{
+  "model": "core.appuser",
+  "pk": 8,
+  "fields": {
+    "email": "hannah@mail.com",
+    "given_name": "Hannah",
+    "surname": "White",
+    "city": "Astana",
+    "phone_number": "87011111118",
+    "profile_description": "Special needs exp",
+    "password": "pass8"
+  }
+},
+{
+  "model": "core.appuser",
+  "pk": 9,
+  "fields": {
+    "email": "ivan@mail.com",
+    "given_name": "Ivan",
+    "surname": "Black",
+    "city": "Almaty",
+    "phone_number": "87011111119",
+    "profile_description": "Part-time helper",
+    "password": "pass9"
+  }
+},
+{
+  "model": "core.appuser",
+  "pk": 10,
+  "fields": {
+    "email": "julia@mail.com",
+    "given_name": "Julia",
+    "surname": "Clarke",
+    "city": "Astana",
+    "phone_number": "87011111120",
+    "profile_description": "Music tutor and sitter",
+    "password": "pass10"
+  }
+},
+{
+  "model": "core.appuser",
+  "pk": 11,
+  "fields": {
+    "email": "kevin@mail.com",
+    "given_name": "Kevin",
+    "surname": "King",
+    "city": "Astana",
+    "phone_number": "87771112222",
+    "profile_description": "Busy father",
+    "password": "pass11"
+  }
+},
+{
+  "model": "core.appuser",
+  "pk": 12,
+  "fields": {
+    "email": "laura@mail.com",
+    "given_name": "Laura",
+    "surname": "Lee",
+    "city": "Almaty",
+    "phone_number": "87771113333",
+    "profile_description": "Need help weekends",
+    "password": "pass12"
+  }
+},
+{
+  "model": "core.appuser",
+  "pk": 13,
+  "fields": {
+    "email": "mike@mail.com",
+    "given_name": "Mike",
+    "surname": "Miller",
+    "city": "Astana",
+    "phone_number": "87771114444",
+    "profile_description": "Looking for elderly care",
+    "password": "pass13"
+  }
+},
+{
+  "model": "core.appuser",
+  "pk": 14,
+  "fields": {
+    "email": "nina@mail.com",
+    "given_name": "Nina",
+    "surname": "Nelson",
+    "city": "Shymkent",
+    "phone_number": "87771115555",
+    "profile_description": "Single mom",
+    "password": "pass14"
+  }
+},
+{
+  "model": "core.appuser",
+  "pk": 15,
+  "fields": {
+    "email": "oscar@mail.com",
+    "given_name": "Oscar",
+    "surname": "Orton",
+    "city": "Astana",
+    "phone_number": "87771116666",
+    "profile_description": "Need urgent help",
+    "password": "pass15"
+  }
+},
+{
+  "model": "core.appuser",
+  "pk": 16,
+  "fields": {
+    "email": "paul@mail.com",
+    "given_name": "Paul",
+    "surname": "Parker",
+    "city": "Almaty",
+    "phone_number": "87771117777",
+    "profile_description": "Frequent traveler",
+    "password": "pass16"
+  }
+},
+{
+  "model": "core.appuser",
+  "pk": 17,
+  "fields": {
+    "email": "quinn@mail.com",
+    "given_name": "Quinn",
+    "surname": "Quick",
+    "city": "Astana",
+    "phone_number": "87771118888",
+    "profile_description": "Three kids",
+    "password": "pass17"
+  }
+},
+{
+  "model": "core.appuser",
+  "pk": 18,
+  "fields": {
+    "email": "rachel@mail.com",
+    "given_name": "Rachel",
+    "surname": "Red",
+    "city": "Astana",
+    "phone_number": "87771119999",
+    "profile_description": "Live near park",
+    "password": "pass18"
+  }
+},
+{
+  "model": "core.appuser",
+  "pk": 19,
+  "fields": {
+    "email": "amina@mail.com",
+    "given_name": "Amina",
+    "surname": "Aminova",
+    "city": "Astana",
+    "phone_number": "87770001111",
+    "profile_description": "Requires regular help",
+    "password": "pass19"
+  }
+},
+{
+  "model": "core.appuser",
+  "pk": 20,
+  "fields": {
+    "email": "arman@mail.com",
+    "given_name": "Arman",
+    "surname": "Armanov",
+    "city": "Almaty",
+    "phone_number": "87770002222",
+    "profile_description": "Looking for professional",
+    "password": "pass20"
+  }
+},
+{
+  "model": "core.caregiver",
+  "pk": 1,
+  "fields": {
+    "photo": "photo1.jpg",
+    "gender": "F",
+    "caregiving_type": "Babysitter",
+    "hourly_rate": "15.00"
+  }
+},
+{
+  "model": "core.caregiver",
+  "pk": 2,
+  "fields": {
+    "photo": "photo2.jpg",
+    "gender": "M",
+    "caregiving_type": "Elderly Care",
+    "hourly_rate": "8.00"
+  }
+},
+{
+  "model": "core.caregiver",
+  "pk": 3,
+  "fields": {
+    "photo": "photo3.jpg",
+    "gender": "M",
+    "caregiving_type": "Babysitter",
+    "hourly_rate": "12.00"
+  }
+},
+{
+  "model": "core.caregiver",
+  "pk": 4,
+  "fields": {
+    "photo": "photo4.jpg",
+    "gender": "F",
+    "caregiving_type": "Playmate for children",
+    "hourly_rate": "9.00"
+  }
+},
+{
+  "model": "core.caregiver",
+  "pk": 5,
+  "fields": {
+    "photo": "photo5.jpg",
+    "gender": "M",
+    "caregiving_type": "Elderly Care",
+    "hourly_rate": "20.00"
+  }
+},
+{
+  "model": "core.caregiver",
+  "pk": 6,
+  "fields": {
+    "photo": "photo6.jpg",
+    "gender": "F",
+    "caregiving_type": "Babysitter",
+    "hourly_rate": "11.50"
+  }
+},
+{
+  "model": "core.caregiver",
+  "pk": 7,
+  "fields": {
+    "photo": "photo7.jpg",
+    "gender": "M",
+    "caregiving_type": "Playmate for children",
+    "hourly_rate": "10.00"
+  }
+},
+{
+  "model": "core.caregiver",
+  "pk": 8,
+  "fields": {
+    "photo": "photo8.jpg",
+    "gender": "F",
+    "caregiving_type": "Elderly Care",
+    "hourly_rate": "18.00"
+  }
+},
+{
+  "model": "core.caregiver",
+  "pk": 9,
+  "fields": {
+    "photo": "photo9.jpg",
+    "gender": "M",
+    "caregiving_type": "Babysitter",
+    "hourly_rate": "14.00"
+  }
+},
+{
+  "model": "core.caregiver",
+  "pk": 10,
+  "fields": {
+    "photo": "photo10.jpg",
+    "gender": "F",
+    "caregiving_type": "Playmate for children",
+    "hourly_rate": "13.00"
+  }
+},
+{
+  "model": "core.member",
+  "pk": 11,
+  "fields": {
+    "house_rules": "No pets.",
+    "dependent_description": "Elderly father with mobility issues"
+  }
+},
+{
+  "model": "core.member",
+  "pk": 12,
+  "fields": {
+    "house_rules": "No smoking",
+    "dependent_description": "Two energetic twins"
+  }
+},
+{
+  "model": "core.member",
+  "pk": 13,
+  "fields": {
+    "house_rules": "Shoes off",
+    "dependent_description": "Grandmother needs company"
+  }
+},
+{
+  "model": "core.member",
+  "pk": 14,
+  "fields": {
+    "house_rules": "Vegetarian food only",
+    "dependent_description": "5 year old girl"
+  }
+},
+{
+  "model": "core.member",
+  "pk": 15,
+  "fields": {
+    "house_rules": "Quiet after 9pm",
+    "dependent_description": "Newborn baby"
+  }
+},
+{
+  "model": "core.member",
+  "pk": 16,
+  "fields": {
+    "house_rules": "Be on time",
+    "dependent_description": "10 year old boy"
+  }
+},
+{
+  "model": "core.member",
+  "pk": 17,
+  "fields": {
+    "house_rules": "Clean up toys",
+    "dependent_description": "Toddler"
+  }
+},
+{
+  "model": "core.member",
+  "pk": 18,
+  "fields": {
+    "house_rules": "No loud music",
+    "dependent_description": "Sick relative"
+  }
+},
+{
+  "model": "core.member",
+  "pk": 19,
+  "fields": {
+    "house_rules": "Hygiene is priority",
+    "dependent_description": "Daughter needs tutoring"
+  }
+},
+{
+  "model": "core.member",
+  "pk": 20,
+  "fields": {
+    "house_rules": "Safety first",
+    "dependent_description": "Son likes painting"
+  }
+},
+{
+  "model": "core.address",
+  "pk": 11,
+  "fields": {
+    "house_number": "10A",
+    "street": "Mangilik El",
+    "town": "Astana"
+  }
+},
+{
+  "model": "core.address",
+  "pk": 12,
+  "fields": {
+    "house_number": "5B",
+    "street": "Abay",
+    "town": "Almaty"
+  }
+},
+{
+  "model": "core.address",
+  "pk": 13,
+  "fields": {
+    "house_number": "12",
+    "street": "Turan",
+    "town": "Astana"
+  }
+},
+{
+  "model": "core.address",
+  "pk": 14,
+  "fields": {
+    "house_number": "77",
+    "street": "Tauke Khan",
+    "town": "Shymkent"
+  }
+},
+{
+  "model": "core.address",
+  "pk": 15,
+  "fields": {
+    "house_number": "3",
+    "street": "Saryarka",
+    "town": "Astana"
+  }
+},
+{
+  "model": "core.address",
+  "pk": 16,
+  "fields": {
+    "house_number": "99",
+    "street": "Dostyk",
+    "town": "Almaty"
+  }
+},
+{
+  "model": "core.address",
+  "pk": 17,
+  "fields": {
+    "house_number": "44",
+    "street": "Kunaev",
+    "town": "Astana"
+  }
+},
+{
+  "model": "core.address",
+  "pk": 18,
+  "fields": {
+    "house_number": "101",
+    "street": "Kabanbay Batyr",
+    "town": "Astana"
+  }
+},
+{
+  "model": "core.address",
+  "pk": 19,
+  "fields": {
+    "house_number": "102",
+    "street": "Kabanbay Batyr",
+    "town": "Astana"
+  }
+},
+{
+  "model": "core.address",
+  "pk": 20,
+  "fields": {
+    "house_number": "55",
+    "street": "Gogol",
+    "town": "Almaty"
+  }
+},
+{
+  "model": "core.job",
+  "pk": 1,
+  "fields": {
+    "member": 11,
+    "required_caregiving_type": "Elderly Care",
+    "other_requirements": "Must be strong and patient",
+    "date_posted": "2025-10-01"
+  }
+},
+{
+  "model": "core.job",
+  "pk": 2,
+  "fields": {
+    "member": 12,
+    "required_caregiving_type": "Babysitter",
+    "other_requirements": "English speaking preferred",
+    "date_posted": "2025-10-02"
+  }
+},
+{
+  "model": "core.job",
+  "pk": 3,
+  "fields": {
+    "member": 13,
+    "required_caregiving_type": "Elderly Care",
+    "other_requirements": "Must be soft-spoken and kind",
+    "date_posted": "2025-10-03"
+  }
+},
+{
+  "model": "core.job",
+  "pk": 4,
+  "fields": {
+    "member": 14,
+    "required_caregiving_type": "Babysitter",
+    "other_requirements": "Weekend availability",
+    "date_posted": "2025-10-04"
+  }
+},
+{
+  "model": "core.job",
+  "pk": 5,
+  "fields": {
+    "member": 19,
+    "required_caregiving_type": "Babysitter",
+    "other_requirements": "Math tutoring required",
+    "date_posted": "2025-10-05"
+  }
+},
+{
+  "model": "core.job",
+  "pk": 6,
+  "fields": {
+    "member": 19,
+    "required_caregiving_type": "Playmate for children",
+    "other_requirements": "Artistic skills",
+    "date_posted": "2025-10-06"
+  }
+},
+{
+  "model": "core.job",
+  "pk": 7,
+  "fields": {
+    "member": 20,
+    "required_caregiving_type": "Babysitter",
+    "other_requirements": "Driver license needed",
+    "date_posted": "2025-10-07"
+  }
+},
+{
+  "model": "core.job",
+  "pk": 8,
+  "fields": {
+    "member": 15,
+    "required_caregiving_type": "Babysitter",
+    "other_requirements": "Night shift",
+    "date_posted": "2025-10-08"
+  }
+},
+{
+  "model": "core.job",
+  "pk": 9,
+  "fields": {
+    "member": 16,
+    "required_caregiving_type": "Playmate for children",
+    "other_requirements": "Sports oriented",
+    "date_posted": "2025-10-09"
+  }
+},
+{
+  "model": "core.job",
+  "pk": 10,
+  "fields": {
+    "member": 11,
+    "required_caregiving_type": "Elderly Care",
+    "other_requirements": "Cooking skills",
+    "date_posted": "2025-10-10"
+  }
+},
+{
+  "model": "core.appointment",
+  "pk": 1,
+  "fields": {
+    "caregiver": 1,
+    "member": 12,
+    "appointment_date": "2025-11-01",
+    "appointment_time": "09:00:00",
+    "work_hours": 4,
+    "status": "Accepted"
+  }
+},
+{
+  "model": "core.appointment",
+  "pk": 2,
+  "fields": {
+    "caregiver": 2,
+    "member": 11,
+    "appointment_date": "2025-11-02",
+    "appointment_time": "14:00:00",
+    "work_hours": 3,
+    "status": "Accepted"
+  }
+},
+{
+  "model": "core.appointment",
+  "pk": 3,
+  "fields": {
+    "caregiver": 3,
+    "member": 13,
+    "appointment_date": "2025-11-03",
+    "appointment_time": "10:00:00",
+    "work_hours": 5,
+    "status": "Pending"
+  }
+},
+{
+  "model": "core.appointment",
+  "pk": 4,
+  "fields": {
+    "caregiver": 4,
+    "member": 19,
+    "appointment_date": "2025-11-04",
+    "appointment_time": "12:00:00",
+    "work_hours": 2,
+    "status": "Accepted"
+  }
+},
+{
+  "model": "core.appointment",
+  "pk": 5,
+  "fields": {
+    "caregiver": 5,
+    "member": 11,
+    "appointment_date": "2025-11-05",
+    "appointment_time": "08:00:00",
+    "work_hours": 6,
+    "status": "Declined"
+  }
+},
+{
+  "model": "core.appointment",
+  "pk": 6,
+  "fields": {
+    "caregiver": 6,
+    "member": 12,
+    "appointment_date": "2025-11-06",
+    "appointment_time": "18:00:00",
+    "work_hours": 3,
+    "status": "Accepted"
+  }
+},
+{
+  "model": "core.appointment",
+  "pk": 7,
+  "fields": {
+    "caregiver": 8,
+    "member": 15,
+    "appointment_date": "2025-11-07",
+    "appointment_time": "20:00:00",
+    "work_hours": 8,
+    "status": "Accepted"
+  }
+},
+{
+  "model": "core.appointment",
+  "pk": 8,
+  "fields": {
+    "caregiver": 9,
+    "member": 20,
+    "appointment_date": "2025-11-08",
+    "appointment_time": "15:00:00",
+    "work_hours": 4,
+    "status": "Pending"
+  }
+},
+{
+  "model": "core.appointment",
+  "pk": 9,
+  "fields": {
+    "caregiver": 10,
+    "member": 16,
+    "appointment_date": "2025-11-09",
+    "appointment_time": "11:00:00",
+    "work_hours": 2,
+    "status": "Accepted"
+  }
+},
+{
+  "model": "core.appointment",
+  "pk": 10,
+  "fields": {
+    "caregiver": 1,
+    "member": 14,
+    "appointment_date": "2025-11-10",
+    "appointment_time": "09:00:00",
+    "work_hours": 5,
+    "status": "Accepted"
+  }
+}
+]
